@@ -1,3 +1,5 @@
+from Maths import Maths
+
 class Fracao:
     """"Object to manage 2 integers as a fraction den and num"""
 
@@ -19,7 +21,7 @@ class Fracao:
         return(a.num==b.num and a.den==b.den)
 
     def __add__(self,f):
-        if isinstance(self,f):
+        if isinstance(f,int):
             num = self.num + f * self.den
             den = self.den
         elif isinstance(f,Fracao):
@@ -30,7 +32,7 @@ class Fracao:
         return Fracao(num,den)
 
     def __iadd__(self,f):
-        if isinstance(self,f):
+        if isinstance(f,int):
             self.num += f * self.den
         elif isinstance(f,Fracao):
             self.den *= f.den
@@ -40,7 +42,7 @@ class Fracao:
         return self.simplifica()
 
     def __sub__(self,f):
-        if isinstance(self,f):
+        if isinstance(f,int):
             num = self.num - f * self.den
             den = self.den
         elif isinstance(f,Fracao):
@@ -83,8 +85,9 @@ class Fracao:
     def simplifica(self):
         """makes the fraction smaller"""
         max = 1
+        m = Maths()
         if self.num != 0:
-            max = mdc(self.num, self.den)
+            max = m.mdc(self.num, self.den)
         if max > 1:
             self.num //=max
             self.den //=max

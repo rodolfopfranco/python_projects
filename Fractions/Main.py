@@ -1,9 +1,12 @@
-import Fracao
-import Maths
+from Fracao import Fracao
+from Maths import Maths
 
-def Main():
+def demo():
+    print("Demo de resultados com estas 2 frações:")
     f = Fracao(15,45)
     g = Fracao(50,75)
+    print("f = "+str(f.num)+"/"+str(f.den))
+    print("g = "+str(g.num)+"/"+str(g.den)+"\n")
     print("f = 15/45 = %s" %f)
     print("g= 50/75 = %s" % g)
     print("f+g = %s" % (f + g))
@@ -16,5 +19,13 @@ def Main():
     print("g - f - f = %s" % (g - f - f))
     print("f * 2 = %s" % (f * 2))
     print("f + 2 = %s" % (f + 2))
+    print("f/g = %5s" % (f / g))
+    f += g * 2
+    print("f += g*2 = %s" % f)
+    f -= g * 2
+    print("f -= g*2 = %s" % f)
 
-Main()
+def main():
+    demo()
+
+main()
