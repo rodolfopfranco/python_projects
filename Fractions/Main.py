@@ -1,6 +1,7 @@
 from Fracao import Fracao
 from Maths import Maths
 from Manual import Manual
+from File_Manager import FractionsFile
 
 def demo():
     print("Demo de resultados com estas 2 frações:")
@@ -27,6 +28,7 @@ def demo():
     print("f -= g*2 = %s" % f)
 
 def menu():
+    f = FractionsFile()
     print("Escolha uma opção:")
     print("1 - Manual")
     print("2 - Arquivo")
@@ -35,7 +37,7 @@ def menu():
     if(choice==3):
         demo()
     elif(choice==2):
-        menu()
+        f.fileScreen()
     elif(choice==1):
         Manual.tela()
 
